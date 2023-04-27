@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+</head>
+<body>
+<h1>The Data of this page are from Server Side </h1>
+<div><label> random number</label> <span id="randNum"></span></div>
+<div><label> server times </label> <span id="times"></span></div>
+
+
+<script type="text/javascript">
+    new EventSource("randomNumber")
+        .addEventListener("randomNumber",
+            e => document.getElementById('randNum').innerHTML = e.data
+        );
+    new EventSource("servertime")
+        .addEventListener("servertime",
+            e => document.getElementById('times').innerHTML = e.data
+        );
+</script>
+
+</body>
+</html>
